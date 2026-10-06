@@ -2,48 +2,20 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
 
 jobs:
-  validate:
-    name: Validate repository surface
+  verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Required files exist
-        run: |
-          set -e
-          test -f README.md
-          test -f LICENSE
-          test -f SECURITY.md
-          test -f CONTRIBUTING.md
-          test -f package.json
-          test -f docs/ROADMAP.md
-          test -f docs/ARCHITECTURE.md
-          test -f docs/INVESTOR.md
-          test -f docs/POSITIONING.md
-          test -f docs/API.md
-          echo "All required files present."
-
-      - name: Validate package.json
-        run: |
-          node -e "
-            const pkg = require('./package.json');
-            if (!pkg.name || !pkg.version || !pkg.license) {
-              console.error('package.json missing name, version or license');
-              process.exit(1);
-            }
-            console.log('package.json OK:', pkg.name, pkg.version);
-          "
-
-      - name: README contains live product and video links
-        run: |
-          set -e
-          grep -q 'agentcourt-ai.vercel.app' README.md
-          grep -q 'youtube.com/shorts/5_4l4GNMRvs' README.md
-          grep -q 'docs/ROADMAP.md' README.md
-          echo "README links OK."
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run docs:check
+      - run: npm run build
