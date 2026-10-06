@@ -1,5 +1,6 @@
 import { DEMO_CASES } from '@/lib/demo-cases';
 import CreateCaseForm from './CreateCaseForm';
+import ExportReport from './ExportReport';
 
 export default function CasesPage() {
   const featured = DEMO_CASES[0];
@@ -8,15 +9,20 @@ export default function CasesPage() {
     <main className="shell">
       <header>
         <b>CASE INTELLIGENCE DEMO</b>
-        <a href="/">Home</a>
+        <nav className="nav">
+          <a href="/">Home</a>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/docs">Docs</a>
+        </nav>
       </header>
 
       <div className="panel">
         <small>DEMO DATA — NOT A LIVE ARBITRATION CASE</small>
         <h1>Dispute workspace</h1>
         <p>
-          Seeded demo cases for UI review. No live AI, database, blockchain, custody
-          or Kleros integration. Capability flags on{' '}
+          Seeded demo cases for UI review. Structured for Kleros-compatible ERC-1497
+          evidence export. No live AI, database, blockchain, custody or on-chain Kleros
+          submission. Capability flags on{' '}
           <a href="/api/v1/health">/api/v1/health</a> are the source of truth.
         </p>
       </div>
@@ -69,6 +75,7 @@ export default function CasesPage() {
             <p>{featured.finding}</p>
           </article>
         </div>
+        <ExportReport caseData={featured} />
       </section>
     </main>
   );
