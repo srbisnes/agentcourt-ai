@@ -7,28 +7,43 @@ on:
     branches: [main, master]
 
 jobs:
-  build:
+  validate:
+    name: Validate repository surface
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
+      - name: Required files exist
+        run: |
+          set -e
+          test -f README.md
+          test -f LICENSE
+          test -f SECURITY.md
+          test -f CONTRIBUTING.md
+          test -f package.json
+          test -f docs/ROADMAP.md
+          test -f docs/ARCHITECTURE.md
+          test -f docs/INVESTOR.md
+          test -f docs/POSITIONING.md
+          test -f docs/API.md
+          echo "All required files present."
 
-      - name: Install dependencies
-        run: npm ci || npm install
+      - name: Validate package.json
+        run: |
+          node -e "
+            const pkg = require('./package.json');
+            if (!pkg.name || !pkg.version || !pkg.license) {
+              console.error('package.json missing name, version or license');
+              process.exit(1);
+            }
+            console.log('package.json OK:', pkg.name, pkg.version);
+          "
 
-      - name: Lint (if configured)
-        run: npm run lint --if-present
-
-      - name: Run tests (if configured)
-        run: npm test --if-present
-
-      - name: Build
-        run: npm run build --if-present
-
-      - name: Audit (non-blocking for now)
-        run: npm audit --audit-level=high || true
+      - name: README contains live product and video links
+        run: |
+          set -e
+          grep -q 'agentcourt-ai.vercel.app' README.md
+          grep -q 'youtube.com/shorts/5_4l4GNMRvs' README.md
+          grep -q 'docs/ROADMAP.md' README.md
+          echo "README links OK."

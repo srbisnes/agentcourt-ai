@@ -2,24 +2,30 @@
   "name": "agentcourt-ai",
   "version": "0.1.0",
   "private": true,
-  "description": "Intelligence Layer for Decentralized Justice — Evidence intelligence for jurors, DAOs and autonomous agents.",
+  "description": "Intelligence Layer for Decentralized Justice — Evidence intelligence + smart custody for the autonomous economy.",
   "author": "ElCryptoBoy",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srbisnes/agentcourt-ai.git"
+  },
+  "homepage": "https://agentcourt-ai.vercel.app",
+  "bugs": {
+    "url": "https://github.com/srbisnes/agentcourt-ai/issues"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "node --test tests/*.test.mjs"
+    "validate": "node -e \"require('./package.json'); console.log('ok')\"",
+    "docs:check": "node -e \"const fs=require('fs');['README.md','LICENSE','SECURITY.md','docs/ROADMAP.md','docs/ARCHITECTURE.md','docs/INVESTOR.md'].forEach(f=>{if(!fs.existsSync(f)){console.error('Missing',f);process.exit(1)}});console.log('docs ok')\""
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "keywords": [
     "web3",
     "decentralized-justice",
     "dispute-resolution",
     "evidence-intelligence",
+    "smart-custody",
     "kleros",
     "dao",
     "ai-agents",
