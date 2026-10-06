@@ -5,16 +5,31 @@
   "description": "Evidence intelligence foundation for decentralized dispute resolution.",
   "author": "ElCryptoBoy",
   "license": "MIT",
-  "repository": {"type":"git","url":"https://github.com/srbisnes/agentcourt-ai.git"},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srbisnes/agentcourt-ai.git"
+  },
   "homepage": "https://agentcourt-ai.vercel.app",
   "scripts": {
+    "dev": "next dev",
+    "start": "next start",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "build": "npm run test && npm run typecheck && next build",
     "validate": "npm run test && npm run typecheck",
-    "docs:check": "node -e \"const fs=require('fs');['README.md','LICENSE','SECURITY.md','docs/ARCHITECTURE.md','docs/ROADMAP.md'].forEach(f=>{if(!fs.existsSync(f)){console.error('Missing',f);process.exit(1)}});console.log('docs ok')\""
+    "docs:check": "node -e \"const fs=require('fs');['README.md','LICENSE','SECURITY.md','docs/ARCHITECTURE.md','docs/ROADMAP.md','docs/SPEC.md'].forEach(f=>{if(!fs.existsSync(f)){console.error('Missing',f);process.exit(1)}});console.log('docs ok')\""
   },
-  "engines": {"node": ">=20"},
-  "dependencies": {"next":"15.5.27","react":"19.1.0","react-dom":"19.1.0"},
-  "devDependencies": {"@types/node":"^22.10.0","@types/react":"^19.0.2","typescript":"^5.7.2"}
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "next": "15.5.27",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.2",
+    "typescript": "^5.7.2"
+  }
 }
