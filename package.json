@@ -1,0 +1,28 @@
+{
+  "name": "agentcourt-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Intelligence Layer for Decentralized Justice — Evidence intelligence for jurors, DAOs and autonomous agents.",
+  "author": "ElCryptoBoy",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "web3",
+    "decentralized-justice",
+    "dispute-resolution",
+    "evidence-intelligence",
+    "kleros",
+    "dao",
+    "ai-agents",
+    "arbitration"
+  ]
+}
