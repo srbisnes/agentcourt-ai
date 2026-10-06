@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit",
     "build": "npm run test && npm run typecheck && next build",
     "validate": "npm run test && npm run typecheck",
-    "docs:check": "node -e \"const fs=require('fs');['README.md','LICENSE','SECURITY.md','docs/ARCHITECTURE.md','docs/ROADMAP.md','docs/SPEC.md'].forEach(f=>{if(!fs.existsSync(f)){console.error('Missing',f);process.exit(1)}});console.log('docs ok')\""
+    "docs:check": "node -e \"const fs=require('fs');['README.md','LICENSE','SECURITY.md','docs/ARCHITECTURE.md','docs/ROADMAP.md','docs/SPEC.md','docs/KLEROS.md'].forEach(f=>{if(!fs.existsSync(f)){console.error('Missing',f);process.exit(1)}});console.log('docs ok')\""
   },
   "engines": {
     "node": ">=20"
