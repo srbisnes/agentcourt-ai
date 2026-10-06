@@ -1,63 +1,51 @@
-const capabilities = [
-  ['Case Intelligence', 'A clear workspace for organizing evidence and identifying facts that require human review.'],
-  ['Evidence Mapping', 'Connect claims, sources, transactions and contradictions in an auditable evidence model.'],
-  ['Decision Support', 'Present findings as decision support. AgentCourt AI does not decide disputes or replace jurors.'],
-];
-
 export default function Home() {
   return (
     <main className="shell">
       <header>
         <b>AGENTCOURT AI</b>
         <nav className="nav">
-          <a href="/cases">Cases</a>
+          <a href="/cases">Try demo</a>
           <a href="/dashboard">Dashboard</a>
           <a href="/docs">Docs</a>
         </nav>
       </header>
       <section className="hero">
         <div>
-          <small>THE INTELLIGENCE LAYER FOR DECENTRALIZED JUSTICE</small>
-          <h1>Evidence intelligence for decentralized disputes.</h1>
+          <small>BUILT BY ELCRYPTOBOY</small>
+          <h1>Try a dispute in 60 seconds.</h1>
           <p>
-            AgentCourt AI turns complex digital evidence into structured, reviewable packages
-            for Kleros jurors, DAOs and protocols — without replacing human judgment.
+            Load a ready example, add evidence, run analysis, export a package, and leave feedback.
+            Share the link — people can use it without asking you for help.
           </p>
           <div className="actions">
-            <a href="/cases">Open Case Demo</a>
-            <a href="/dashboard">Dispute Dashboard</a>
-            <a href="/docs">Product Documentation</a>
+            <a href="/cases">Open interactive demo</a>
+            <a href="/cases">Marketplace example</a>
+            <a href="/docs">API docs</a>
           </div>
         </div>
         <div className="panel">
-          <small>VERIFIED RELEASE</small>
-          <h2>Evidence-first foundation</h2>
-          <p>
-            Public product shell, ERC-1497-shaped evidence export, demo dashboard and API
-            contract. Built to feed Kleros — not to replace it.
-          </p>
-          <strong>Live Kleros / AI / custody integrations are not claimed until implemented and tested.</strong>
+          <small>WHAT YOU CAN DO NOW</small>
+          <h2>Feedback-ready flow</h2>
+          <p>1. Pick an example case</p>
+          <p>2. Add or edit evidence notes</p>
+          <p>3. Run analysis (deterministic demo)</p>
+          <p>4. Export JSON · leave a rating</p>
+          <strong>Saved in the visitor browser. No account required.</strong>
         </div>
       </section>
       <section className="cards">
-        {capabilities.map(([title, body]) => (
-          <article key={title}>
-            <strong>{title}</strong>
-            <p>{body}</p>
-          </article>
-        ))}
-      </section>
-      <section className="visual">
-        <img src="/architecture.svg" alt="AgentCourt AI evidence intelligence architecture" />
-      </section>
-      <section className="panel">
-        <small>FOR KLEROS</small>
-        <h2>We prepare the evidence. Court decides.</h2>
-        <p>
-          Export ERC-1497 JSON from the case workspace. On-chain submission via{' '}
-          <code>@kleros/kleros-sdk</code> is the next integration step — documented in{' '}
-          <a href="https://github.com/srbisnes/agentcourt-ai/blob/main/docs/KLEROS.md">docs/KLEROS.md</a>.
-        </p>
+        <article>
+          <strong>Marketplace</strong>
+          <p>Paid but not delivered — conflicting dates.</p>
+        </article>
+        <article>
+          <strong>Freelance</strong>
+          <p>Milestone incomplete vs claimed done.</p>
+        </article>
+        <article>
+          <strong>Agent vs agent</strong>
+          <p>Invalid API delivery between agents.</p>
+        </article>
       </section>
     </main>
   );
