@@ -2,7 +2,7 @@
   "name": "agentcourt-ai",
   "version": "0.1.0",
   "private": true,
-  "description": "Evidence intelligence foundation for decentralized dispute resolution.",
+  "description": "AgentCourt AI — Evidence intelligence foundation for decentralized dispute resolution. Built by ElCryptoBoy.",
   "author": "ElCryptoBoy",
   "license": "MIT",
   "repository": {
@@ -10,6 +10,9 @@
     "url": "https://github.com/srbisnes/agentcourt-ai.git"
   },
   "homepage": "https://agentcourt-ai.vercel.app",
+  "bugs": {
+    "url": "https://github.com/srbisnes/agentcourt-ai/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "start": "next start",
@@ -17,7 +20,7 @@
     "typecheck": "tsc --noEmit",
     "build": "npm run test && npm run typecheck && next build",
     "validate": "npm run test && npm run typecheck",
-    "docs:check": "node -e \"const fs=require('fs');['README.md','LICENSE','SECURITY.md','docs/ARCHITECTURE.md','docs/ROADMAP.md','docs/SPEC.md','docs/KLEROS.md'].forEach(f=>{if(!fs.existsSync(f)){console.error('Missing',f);process.exit(1)}});console.log('docs ok')\""
+    "docs:check": "node -e \"const fs=require('fs');['README.md','LICENSE','SECURITY.md','docs/ARCHITECTURE.md','docs/ROADMAP.md','docs/SPEC.md','docs/KLEROS.md','docs/AUDIT.md'].forEach(f=>{if(!fs.existsSync(f)){console.error('Missing',f);process.exit(1)}});console.log('docs ok')\""
   },
   "engines": {
     "node": ">=20"

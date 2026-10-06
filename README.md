@@ -1,56 +1,63 @@
 # AgentCourt AI
 
-## The Intelligence Layer for Decentralized Justice
+**Intelligence Layer for Decentralized Justice**
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-agentcourt--ai.vercel.app-blue?style=flat-square)](https://agentcourt-ai.vercel.app)
 [![CI](https://github.com/srbisnes/agentcourt-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/srbisnes/agentcourt-ai/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-AgentCourt AI is an **evidence-first intelligence layer for decentralized dispute resolution**.
+> Evidence first. Intelligence second. Judgment remains human and decentralized.
 
-> **Evidence first. Intelligence second. Judgment remains human and decentralized.**
+**AgentCourt AI** prepares structured evidence for jurors, DAOs and protocols.  
+It does **not** decide disputes. It feeds systems like **Kleros** — it does not replace them.
 
-It turns digital evidence into structured, reviewable dispute intelligence for jurors, DAOs, marketplaces and autonomous-agent workflows. **It does not decide disputes.**
+Built by **ElCryptoBoy** ([@rodriboero1986](https://x.com/rodriboero1986)) · GitHub: [srbisnes/agentcourt-ai](https://github.com/srbisnes/agentcourt-ai)
 
-### Verified in this release
+---
 
-- Next.js 15 + TypeScript foundation
-- Public landing page
-- Dispute workspace with **seeded demo cases** and **create-case form** (demo API)
-- Architecture visualization
-- Health endpoint and minimal OpenAPI contract
-- Non-persistent demo case API (`GET` seeded list, `POST` accepts title → 202, not stored)
-- Automated tests + GitHub Actions CI
-- Product specification: [docs/SPEC.md](docs/SPEC.md)
-
-### Explicitly not implemented yet
-
-Live AI inference, database persistence, authentication, wallet signing, blockchain writes, Kleros/UMA submission, smart custody, evidence upload, case close. See health flags and [docs/SPEC.md](docs/SPEC.md).
-
-## Product flow (target)
-
-**Evidence → Verification → Intelligence → Reviewable Report → Human/Protocol Decision**
-
-## Public routes
+## Live surfaces
 
 | Route | Purpose |
-|---|---|
-| `/` | Product landing |
-| `/cases` | Demo workspace: list + evidence + create form |
-| `/docs` | Implemented API documentation |
-| `/api/v1/health` | Capability-aware service health |
-| `/api/v1/openapi` | OpenAPI 3.1 contract |
-| `/api/v1/cases` | Seeded demo cases + non-persistent POST |
+|-------|--------|
+| [Landing](https://agentcourt-ai.vercel.app/) | Product positioning |
+| [Cases](https://agentcourt-ai.vercel.app/cases) | Demo workspace + ERC-1497 export |
+| [Dashboard](https://agentcourt-ai.vercel.app/dashboard) | Demo dispute metrics |
+| [Docs](https://agentcourt-ai.vercel.app/docs) | Implemented API |
+| [Health](https://agentcourt-ai.vercel.app/api/v1/health) | Capability flags (source of truth) |
 
-## Code map
+---
 
-```
-app/page.tsx                 Landing
-app/cases/page.tsx           Workspace
-app/cases/CreateCaseForm.tsx Client form → POST /api/v1/cases
-app/api/v1/*/route.ts        Health, OpenAPI, Cases
-lib/demo-cases.ts            Seeded demo data
-docs/SPEC.md                 Full product contract
-```
+## Verified in this release
+
+- Next.js 15 + TypeScript product shell
+- Case demo with seeded disputes (`AC-*`)
+- Create-case form → `POST /api/v1/cases` (accepted, **not persisted**)
+- ERC-1497-shaped evidence export (JSON / Markdown / CSV)
+- Dispute dashboard (demo metrics, labeled)
+- Health + OpenAPI endpoints
+- Security response headers
+- CI: tests, typecheck, docs check, production build
+
+## Explicitly not live
+
+Database, AI inference, blockchain writes, authentication, on-chain Kleros submission, smart custody.  
+See `/api/v1/health` → `integrations.*: false`.
+
+---
+
+## Documentation
+
+| Document | Content |
+|----------|--------|
+| [docs/SPEC.md](docs/SPEC.md) | Product contract |
+| [docs/AUDIT.md](docs/AUDIT.md) | Release audit checklist |
+| [docs/KLEROS.md](docs/KLEROS.md) | Kleros integration path |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | Phases to usable MVP |
+| [docs/INVESTOR.md](docs/INVESTOR.md) | Investor brief |
+| [SECURITY.md](SECURITY.md) | Security policy |
+
+---
 
 ## Local verification
 
@@ -58,23 +65,24 @@ docs/SPEC.md                 Full product contract
 npm install
 npm test
 npm run typecheck
+npm run docs:check
 npm run build
 npm run dev
 ```
 
-## Docs
+---
 
-| Doc | Content |
-|-----|--------|
-| [docs/SPEC.md](docs/SPEC.md) | What works / what does not / API contract |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | Phases to usable MVP |
-| [docs/INVESTOR.md](docs/INVESTOR.md) | Investor brief |
-| [SECURITY.md](SECURITY.md) | Security policy |
+## Brand
 
-## Built by
+| Item | Value |
+|------|--------|
+| Product | AgentCourt AI |
+| Builder | ElCryptoBoy |
+| GitHub | srbisnes/agentcourt-ai |
+| X | @rodriboero1986 |
+| Live | https://agentcourt-ai.vercel.app |
+| License | MIT |
 
-**ElCryptoBoy** — Web3 / decentralized infrastructure.
+---
 
-- Live: https://agentcourt-ai.vercel.app
-- GitHub: https://github.com/srbisnes/agentcourt-ai
+*AgentCourt AI — Evidence intelligence for the autonomous economy.*
